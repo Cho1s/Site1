@@ -1,0 +1,308 @@
+{% load static %}
+
+<!--{% block title %}Гдавная{% endblock %}-->
+<!--{% block content %}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Изготовление печей</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+<link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/nivo-lightbox/nivo-lightbox.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/nivo-lightbox/default.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="{% static 'https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js' %}"></script>
+      <script src="{% static 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand page-scroll" href="#page-top">Изготовление печей</a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        {% for m, menu_url in menu.items %}
+        <li><a href="#{{ menu_url }}" class="page-scroll">{{ m }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h1>Изготовление печей</h1>
+            <p>
+              {% for cat in categorie %}
+              {{ cat.name }}
+              {% endfor %}
+            </p>
+            <a href="#about" class="btn btn-custom btn-lg page-scroll">Обо мне</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 ">
+        <div class="about-img"><img src="{% static 'img/about.jpg' %}" class="img-responsive" alt=""></div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>Обо мне</h2>
+          <hr>
+          <p>Я и моя команда опытных печников, оказываем услуги по кладке печей:
+            1. Отопительных
+            2. Отопительно/варочных
+            3. Каминопечей
+            4. Лежанок
+            5. Каминов
+            6. Барбекю
+            7. Русских печей</p>
+          <h3>Awarded Chefs</h3>
+          <p>Гарантия качества - это мой 30 летний опыт работы! За это время было сделано больше тысячи печей. Почти в каждой деревне Беларуси, есть хотя бы одна моя печь. Каждого позвонившего проконсультирую от "А" до "Я". А так же выберу лучшее решение исходя из Вашего бюджета. Рассчитаем количество материалов, подберем кирпич.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Restaurant Menu Section -->
+<div id="type">
+  <div class="section-title text-center center">
+  <div class="section-title text-center center">
+    <div class="overlay">
+      <h2>Виды</h2>
+      <hr>
+      <p>Виды печей / каминов / барбекю, ориентировочная стоимость и сроки.</p>
+    </div>
+  </div>
+  <div class="container">
+    {% for cat in categorie %}
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">{{ cat.name }}</h2>
+          <hr>
+          <div class="menu-item">
+            <div class="menu-item-name"> {{ cat.description }} </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- Portfolio Section -->
+<div id="portfolio">
+  <div class="section-title text-center center">
+    <div class="overlay">
+      <h2>Мои работы</h2>
+      <hr>
+      <p>Фотографии моих работ.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="categories">
+        <ul class="cat">
+          <li>
+            <ol class="type">
+              <li><a href="#" data-filter="*" class="active">Работы</a></li>
+              {% for cat in categorie %}
+              <li><a href="#" data-filter=".{{ cat.slug }}">{{ cat.name }}</a></li>
+              {% endfor %}
+            </ol>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        {% for cat in categorie %}
+        {% for card in portfolio %}
+        {% if card.cat_id == cat.id %}
+        <div class="col-sm-6 col-md-4 col-lg-4 {{ cat.slug }}">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{{ card.large_image }} " title="{{ card.title }}" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>{{ card.title }}</h4>
+              </div>
+              <img src="{{ card.small_image }}" class="img-responsive" alt="{{ card.title }}"> </a> </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team Section -->
+<div id="video" class="text-center">
+  <div class="overlay">
+    <div class="container">
+      <div class="col-md-10 col-md-offset-1 section-title">
+        <h2>Видео</h2>
+        <hr>
+        <p>Видео разных печей в процессе постройки.</p>
+      </div>
+      <div id="row">
+        <div class="col-md-4 team">
+          <div class="thumbnail">
+            <div class="team-img"><img src="{% static 'img/team/01.jpg' %}" alt="..."></div>
+            <div class="caption">
+              <h3>123</h3>
+              <p>----------------------------.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 team">
+          <div class="thumbnail">
+            <div class="team-img"><img src="{% static 'img/team/02.jpg' %}" alt="..."></div>
+            <div class="caption">
+              <h3>456</h3>
+              <p>----------------------------.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 team">
+          <div class="thumbnail">
+            <div class="team-img"><img src="{% static 'img/team/03.jpg' %}" alt="..."></div>
+            <div class="caption">
+              <h3>789</h3>
+              <p>----------------------------.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Call Reservation Section -->
+<div id="call-reservation" class="text-center">
+  <div class="container">
+    <h2>Если Вам понравилась какая-то печка или возникли вопросы, звоните  <strong>+375 29 344-75-74</strong></h2>
+  </div>
+</div>
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Contact Form</h2>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed.</p>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <form name="sentMessage" id="contactForm" method="post">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-custom btn-lg">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container text-center">
+    <div class="col-md-4">
+      <h3>Address</h3>
+      <div class="contact-item">
+        <p>4321 California St,</p>
+        <p>San Francisco, CA 12345</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Opening Hours</h3>
+      <div class="contact-item">
+        <p>Mon-Thurs: 10:00 AM - 11:00 PM</p>
+        <p>Fri-Sun: 11:00 AM - 02:00 AM</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Contact Info</h3>
+      <div class="contact-item">
+        <p>Phone: +1 123 456 1234</p>
+        <p>Email: info@company.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-center copyrights">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="social">
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        </ul>
+      </div>
+      <p>&copy; 2016 Touché. All rights reserved. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/nivo-lightbox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/contact_me.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+{% endblock %}
